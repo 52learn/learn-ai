@@ -11,7 +11,12 @@
 
 
 
-conda 环境导入命令：
+conda 根据配置创建环境命令：
+conda env create -f environment.yaml
 
-conda 环境导出命令：conda env export > environment.yaml
+conda 根据配置更新环境命令：
+conda env update -f environment.yaml
+
+conda 环境导出命令：
+conda env export > environment.yaml
 
