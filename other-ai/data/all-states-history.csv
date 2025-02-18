@@ -1,0 +1,10 @@
+date,state,death,deathConfirmed,deathIncrease,deathProbable,hospitalized,hospitalizedCumulative,hospitalizedCurrently,hospitalizedIncrease,inIcuCumulative,inIcuCurrently,negative,negativeIncrease,negativeTestsAntibody,negativeTestsPeopleAntibody,negativeTestsViral,onVentilatorCumulative,onVentilatorCurrently,positive,positiveCasesViral,positiveIncrease,positiveScore,positiveTestsAntibody,positiveTestsAntigen,positiveTestsPeopleAntibody,positiveTestsPeopleAntigen,positiveTestsViral,recovered,totalTestEncountersViral,totalTestEncountersViralIncrease,totalTestResults,totalTestResultsIncrease,totalTestsAntibody,totalTestsAntigen,totalTestsPeopleAntibody,totalTestsPeopleAntigen,totalTestsPeopleViral,totalTestsPeopleViralIncrease,totalTestsViral,totalTestsViralIncrease
+2021/3/7,AK,305,,0,,1293,1293,33,0,,,,0,,,1660758,,2,56886,,0,0,,,,,68693,,,0,1731628,0,,,,,,0,1731628,0
+2021/3/7,AL,10148,7963,-1,2185,45976,45976,494,0,2676,,1931711,2087,,,,1515,,499819,392077,408,0,,,,,,295690,,0,2323788,2347,,,119757,,2323788,2347,,0
+2021/3/7,AR,5319,4308,22,1011,14926,14926,335,11,,141,2480716,3267,,,2480716,1533,65,324818,255726,165,0,,,,81803,,315517,,0,2736442,3380,,,,481311,,0,2736442,3380
+2021/3/7,AS,0,,0,,,,,0,,,2140,0,,,,,,0,0,0,0,,,,,,,,0,2140,0,,,,,,0,2140,0
+2021/3/7,AZ,16328,14403,5,1925,57907,57907,963,44,,273,3073010,13678,,,,,143,826454,769935,1335,0,,,,,,,,0,7908105,45110,580569,,444089,,3842945,14856,7908105,45110
+2021/3/7,CA,54124,,258,,,,4291,0,,1159,,0,,,,,,3501394,3501394,3816,0,,,,,,,,0,49646014,133186,,,,,,0,49646014,133186
+2021/3/7,CO,5989,5251,3,735,23904,23904,326,18,,,2199458,0,369995,,,,,436602,410976,840,0,63087,,,,,,6415123,38163,6415123,38163,435053,,,,2616541,6107,,0
+2020/1/14,WA,,,0,,,,,0,,,,0,,,,,,0,0,0,0,,,,,,,,0,,0,,,,,,0,,0
+2020/1/13,WA,,,0,,,,,0,,,,0,,,,,,,,0,0,,,,,,,,0,,0,,,,,,0,,0
