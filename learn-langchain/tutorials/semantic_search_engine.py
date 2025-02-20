@@ -68,6 +68,19 @@ v_store = Chroma(collection_name="learn-langchain",
 results=v_store.similarity_search("what is the strength of ChatGPT")
 print(results)
 
+
+import asyncio
 async def async_search():
     results = await v_store.asimilarity_search("what is the strength of ChatGPT")
     print(results)
+
+asyncio.run(async_search())
+
+
+results = v_store.similarity_search_with_score("what is the strength of ChatGPT")
+doc,score = results[0]
+print(f"Document: {doc}\n Score: {score}")
+
+
+embedding = embeddings.embed_query("what is the strength of ChatGPT")
+results = v_store.similarity_search_by_vector(embedding)
