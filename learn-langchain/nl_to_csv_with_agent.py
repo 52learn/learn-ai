@@ -59,3 +59,6 @@ def process_input(user_input:str)->str:
 user_input = "统计所有人的平均年龄"
 
 print(process_input(user_input))
+
+
+agent = create_pandas_dataframe_agent(llm=None,df=df,verbose=True)

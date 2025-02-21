@@ -1,17 +1,13 @@
-import os
+import os,sys
 import pandas as pd
-#from langchain import OpenAI
+from langchain_openai import ChatOpenAI
 
-from IPython.display import Markdown, HTML, display
-from langchain.schema import HumanMessage
-from langchain_community.llms.openai import OpenAI
+current_dir=os.path.dirname(os.path.abspath(__file__))
+csv_file = os.path.join(current_dir,"./data/all-states-history.csv")
+df = pd.read_csv(csv_file).fillna(value = 0)
 
-df = pd.read_csv("./data/all-states-history.csv").fillna(value = 0)
-
-from langchain.agents.agent_types import AgentType
 from langchain_experimental.agents.agent_toolkits import create_pandas_dataframe_agent
-#from langchain.agents import create_pandas_dataframe_agent
-llm = OpenAI(model="text-davinci-003")
-agent = create_pandas_dataframe_agent(llm=None,df=df,verbose=True)
-result = agent.invoke("how many rows are there?")
+llm = ChatOpenAI(temperature=0,model_name='gpt-3.5-turbo')
+agent = create_pandas_dataframe_agent(llm,df,verbose=True,allow_dangerous_code=True)
+result = agent.invoke("总死亡数多少?")
 print(result)
