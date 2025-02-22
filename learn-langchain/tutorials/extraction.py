@@ -1,6 +1,7 @@
 from lang_smith_config import *
 from typing import Optional,List
 from pydantic import BaseModel,Field
+from langchain.schema import HumanMessage,SystemMessage
 
 class Person(BaseModel):
     name: Optional[str] = Field(default=None,description="姓名")
@@ -16,6 +17,7 @@ class Data(BaseModel):
     """Extracted data about people"""
     # Creates a model so that we can extract multiple entities
     people: List[Person]
+
 
 from langchain_core.prompts import ChatPromptTemplate,MessagesPlaceholder
 system = '''你是一个专家提取算法。仅从文本中提取相关信息。如果您不知道要求提取的属性的值就返回null'''
@@ -53,12 +55,12 @@ llm=init_chat_model("gpt-3.5-turbo",model_provider="openai")
 
 
 from langchain_core.utils.function_calling import tool_example_to_messages
-
+ 
 examples = [
-    ("The ocean is blue",Data(p=[])),
+    ("The ocean is blue",Data(people=[])),
     (
         "27岁的Tom很热爱音乐棒球篮球，作为一名音乐教师，每天工作5小时",
-        Data(p=[Person(name="Tom",age=27,hobbies=["音乐","棒球","篮球"],work="音乐教师",height=None,address=None,phone=None,nickName=None)])
+        Data(people=[Person(name="Tom",age=27,hobbies=["音乐","棒球","篮球"],work="音乐教师",height=None,address=None,phone=None,nickName=None)])
     )
 ]
 
@@ -73,3 +75,16 @@ for txt,tool_call in examples:
 
 for msg in messages:
     print(msg.pretty_print())
+
+message_no_extraction = {
+    "role": "user",
+    "content": "The solar system is large, but earth has only 1 moon.",
+}
+
+h_msg = HumanMessage("The solar system is large, but earth has only 1 moon.")
+
+messages.append(h_msg)
+
+structured_llm = llm.with_structured_output(schema=Data,method="function_calling")
+response = structured_llm.invoke(messages)
+print(response)  

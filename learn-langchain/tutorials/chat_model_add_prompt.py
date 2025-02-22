@@ -1,4 +1,4 @@
-from .. import lang_smith_config
+import lang_smith_config
 
 from langchain.chat_models import init_chat_model
 
